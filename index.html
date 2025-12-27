@@ -1,0 +1,1201 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voyago 旅遊｜行程 • 機票 • 飯店</title>
+
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons (optional but nice) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --brand: #0d6efd;
+            --ink: #1f2937;
+            --muted: #6b7280;
+            --cardShadow: 0 10px 25px rgba(0,0,0,.08);
+        }
+
+        body {
+            color: var(--ink);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.20));
+        }
+
+        .shadow-soft {
+            box-shadow: var(--cardShadow);
+        }
+
+        .section-title {
+            letter-spacing: .2px;
+        }
+
+        .badge-soft {
+            background: rgba(13,110,253,.12);
+            color: var(--brand);
+            border: 1px solid rgba(13,110,253,.25);
+        }
+
+        .deal-card:hover {
+            transform: translateY(-2px);
+            transition: .2s;
+        }
+
+        .bg-dots {
+            background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        .mini-kpi {
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .footer-link {
+            color: rgba(255,255,255,.75);
+            text-decoration: none;
+        }
+
+            .footer-link:hover {
+                color: #fff;
+            }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Top bar -->
+    <div class="bg-dark text-white py-2 small">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div class="d-flex align-items-center gap-3">
+                <span><i class="bi bi-telephone"></i> 02-1234-5678</span>
+                <span><i class="bi bi-envelope"></i> service@voyago.example</span>
+                <span class="d-none d-md-inline">
+                    <i class="bi bi-clock"></i> 週一至週日 09:00–21:00
+                </span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a class="text-white text-decoration-none" href="#"><i class="bi bi-facebook"></i></a>
+                <a class="text-white text-decoration-none" href="#"><i class="bi bi-instagram"></i></a>
+                <a class="text-white text-decoration-none" href="#"><i class="bi bi-line"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-globe-asia-australia text-primary"></i>
+                Voyago<span class="text-primary">旅遊</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link active" href="#deals">熱門行程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinations">旅遊地區</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#themes">主題旅遊</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">常見問題</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 ms-lg-3">
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-person"></i> 會員登入
+                    </button>
+                    <a class="btn btn-primary" href="#booking">
+                        <i class="bi bi-lightning-charge"></i> 快速訂購
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Carousel -->
+    <header class="bg-dark">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="position-relative" style="height: 520px;">
+                        <img class="w-100 h-100 object-fit-cover"
+                             src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80"
+                             alt="巴黎">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay"></div>
+                        <div class="container position-absolute top-50 start-50 translate-middle w-100">
+                            <div class="row">
+                                <div class="col-lg-7 text-white">
+                                    <span class="badge badge-soft rounded-pill mb-3">冬季精選 • 名額有限</span>
+                                    <h1 class="display-5 fw-bold">歐洲精華行程 — 10 天</h1>
+                                    <p class="lead mb-4">
+                                        巴黎 • 瑞士阿爾卑斯山 • 米蘭 — 精選路線、在地美食與必拍住宿
+                                    </p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a href="#deals" class="btn btn-primary btn-lg">
+                                            查看行程 <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                        <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                                            取得報價
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="position-relative" style="height: 520px;">
+                        <img class="w-100 h-100 object-fit-cover"
+                             src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+                             alt="日本">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay"></div>
+                        <div class="container position-absolute top-50 start-50 translate-middle w-100">
+                            <div class="row">
+                                <div class="col-lg-7 text-white">
+                                    <span class="badge badge-soft rounded-pill mb-3">熱門</span>
+                                    <h2 class="display-6 fw-bold">日本自由行</h2>
+                                    <p class="lead mb-4">
+                                        東京 • 大阪 • 京都 — 飯店＋鐵路周遊券＋票券一次搞定
+                                    </p>
+                                    <a href="#booking" class="btn btn-primary btn-lg">規劃我的行程</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="position-relative" style="height: 520px;">
+                        <img class="w-100 h-100 object-fit-cover"
+                             src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80"
+                             alt="海灘">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay"></div>
+                        <div class="container position-absolute top-50 start-50 translate-middle w-100">
+                            <div class="row">
+                                <div class="col-lg-7 text-white">
+                                    <span class="badge badge-soft rounded-pill mb-3">最新</span>
+                                    <h2 class="display-6 fw-bold">海島度假行程</h2>
+                                    <p class="lead mb-4">
+                                        渡假村住宿、浮潛體驗、夕陽遊船 — 輕鬆無負擔
+                                    </p>
+                                    <a href="#destinations" class="btn btn-primary btn-lg">查看旅遊地區</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">上一張</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">下一張</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Quick booking panel -->
+    <section id="booking" class="py-4 bg-white border-bottom">
+        <div class="container">
+            <div class="row g-3 align-items-end">
+                <div class="col-12 col-lg-3">
+                    <label class="form-label fw-semibold">旅遊類型</label>
+                    <select class="form-select" id="tripType">
+                        <option value="group" selected>團體旅遊</option>
+                        <option value="free">自由行</option>
+                        <option value="ticket">票券／周遊券</option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <label class="form-label fw-semibold">目的地</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                        <input class="form-control" id="destination" placeholder="例如：日本／歐洲／泰國" />
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <label class="form-label fw-semibold">出發月份</label>
+                    <input type="month" class="form-control" id="departMonth" />
+                </div>
+                <div class="col-12 col-lg-2 d-grid">
+                    <button class="btn btn-primary btn-lg" id="searchBtn">
+                        <i class="bi bi-search"></i> 搜尋
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-light border">
+                    <i class="bi bi-shield-check"></i> 合法旅行社
+                </span>
+                <span class="badge rounded-pill text-bg-light border">
+                    <i class="bi bi-currency-dollar"></i> 價格透明
+                </span>
+                <span class="badge rounded-pill text-bg-light border">
+                    <i class="bi bi-headset"></i> 在地客服支援
+                </span>
+                <span class="badge rounded-pill text-bg-light border">
+                    <i class="bi bi-credit-card"></i> 安全付款
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- KPIs -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-lg-3">
+                    <div class="mini-kpi p-3 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="small text-muted">每月旅遊人次</div>
+                                <div class="h4 fw-bold mb-0">12,800+</div>
+                            </div>
+                            <i class="bi bi-people fs-3 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="mini-kpi p-3 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="small text-muted">旅遊目的地</div>
+                                <div class="h4 fw-bold mb-0">60+</div>
+                            </div>
+                            <i class="bi bi-map fs-3 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="mini-kpi p-3 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="small text-muted">顧客評價</div>
+                                <div class="h4 fw-bold mb-0">4.8/5</div>
+                            </div>
+                            <i class="bi bi-star fs-3 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="mini-kpi p-3 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="small text-muted">客服支援</div>
+                                <div class="h4 fw-bold mb-0">24/7</div>
+                            </div>
+                            <i class="bi bi-headset fs-3 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals -->
+    <section id="deals" class="py-5 bg-white border-top border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+                <div>
+                    <h2 class="section-title fw-bold mb-1">熱門行程</h2>
+                    <div class="text-muted">精選人氣旅遊商品，重點清楚、價格透明。</div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                        <i class="bi bi-send"></i> 客製化報價
+                    </button>
+                    <a class="btn btn-primary" href="#destinations">
+                        查看更多 <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Deal 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card deal-card h-100 border-0 shadow-soft">
+                        <img class="card-img-top" style="height: 210px; object-fit: cover;"
+                             src="images/image1.jpg"
+                             alt="瑞士">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge text-bg-primary">團體旅遊</span>
+                                <span class="badge text-bg-light border"><i class="bi bi-calendar3"></i> 10 天</span>
+                            </div>
+                            <h5 class="card-title fw-bold">歐洲經典：巴黎＋瑞士阿爾卑斯山</h5>
+                            <p class="card-text text-muted mb-3">拍照景點、景觀列車與城市漫遊。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="small text-muted">起價</div>
+                                    <div class="h5 fw-bold mb-0">$59,900</div>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        data-title="歐洲經典：巴黎＋瑞士阿爾卑斯山"
+                                        data-desc="包含四星級飯店、精選餐食與當地導遊，適合第一次前往歐洲的旅客。"
+                                        data-price="$59,900">
+                                    查看 <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card deal-card h-100 border-0 shadow-soft">
+                        <img class="card-img-top" style="height: 210px; object-fit: cover;"
+                             src="images/image2.jpg"
+                             alt="日本">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge text-bg-success">自由行</span>
+                                <span class="badge text-bg-light border"><i class="bi bi-train-front"></i> 鐵路周遊券</span>
+                            </div>
+                            <h5 class="card-title fw-bold">日本城市串遊：東京・京都・大阪</h5>
+                            <p class="card-text text-muted mb-3">飯店＋交通組合，自由安排一日行程。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="small text-muted">起價</div>
+                                    <div class="h5 fw-bold mb-0">$28,900</div>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        data-title="日本城市串遊：東京・京都・大阪"
+                                        data-desc="包含飯店住宿、可選鐵路周遊券與景點票券，適合自由行旅客。"
+                                        data-price="$28,900">
+                                    查看 <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deal 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card deal-card h-100 border-0 shadow-soft">
+                        <img class="card-img-top" style="height: 210px; object-fit: cover;"
+                             src="images/image3.jpg"
+                             alt="海島">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge text-bg-warning">海灘</span>
+                                <span class="badge text-bg-light border"><i class="bi bi-moon-stars"></i> 渡假村</span>
+                            </div>
+                            <h5 class="card-title fw-bold">海島假期：4 天 3 夜渡假村套裝</h5>
+                            <p class="card-text text-muted mb-3">浮潛體驗、夕陽遊船與加購 SPA 行程。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="small text-muted">起價</div>
+                                    <div class="h5 fw-bold mb-0">$16,900</div>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        data-title="海島假期：4 天 3 夜渡假村套裝"
+                                        data-desc="包含渡假村住宿與機場接送，另有多項加購活動可選。"
+                                        data-price="$16,900">
+                                    查看 <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal 4 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card deal-card h-100 border-0 shadow-soft">
+                        <img class="card-img-top" style="height: 210px; object-fit: cover;"
+                             src="images/image4.jpg"
+                             alt="泰國">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge text-bg-primary">團體旅遊</span>
+                                <span class="badge text-bg-light border"><i class="bi bi-egg-fried"></i> 美食</span>
+                            </div>
+                            <h5 class="card-title fw-bold">曼谷＋水上市場</h5>
+                            <p class="card-text text-muted mb-3">寺廟巡禮、夜市探索、街頭美食體驗。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="small text-muted">起價</div>
+                                    <div class="h5 fw-bold mb-0">$19,900</div>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        data-title="曼谷＋水上市場"
+                                        data-desc="包含飯店住宿與導覽行程，適合第一次前往泰國的旅客。"
+                                        data-price="$19,900">
+                                    查看 <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deal 5 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card deal-card h-100 border-0 shadow-soft">
+                        <img class="card-img-top" style="height: 210px; object-fit: cover;"
+                             src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80"
+                             alt="美國">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge text-bg-success">自由行</span>
+                                <span class="badge text-bg-light border"><i class="bi bi-building"></i> 城市</span>
+                            </div>
+                            <h5 class="card-title fw-bold">紐約城市通行證＋飯店</h5>
+                            <p class="card-text text-muted mb-3">博物館、觀景台與百老匯表演選項。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="small text-muted">起價</div>
+                                    <div class="h5 fw-bold mb-0">$42,500</div>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        data-title="紐約城市通行證＋飯店"
+                                        data-desc="飯店套裝搭配可選城市通行證，行程彈性，另有加購項目。"
+                                        data-price="$42,500">
+                                    查看 <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal 6 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card deal-card h-100 border-0 shadow-soft">
+                        <img class="card-img-top" style="height: 210px; object-fit: cover;"
+                             src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80"
+                             alt="票券">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge text-bg-dark">票券</span>
+                                <span class="badge text-bg-light border"><i class="bi bi-ticket-perforated"></i> 即時出票</span>
+                            </div>
+                            <h5 class="card-title fw-bold">主題樂園門票與通行證</h5>
+                            <p class="card-text text-muted mb-3">QR Code 入場、組合優惠與日期選擇。</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="small text-muted">起價</div>
+                                    <div class="h5 fw-bold mb-0">$1,290</div>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        data-title="主題樂園門票與通行證"
+                                        data-desc="選擇日期、線上付款，即可取得 QR Code 快速入場。"
+                                        data-price="$1,290">
+                                    查看 <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Destinations with Tabs -->
+    <section id="destinations" class="py-5 bg-dots">
+        <div class="container">
+            <div class="row align-items-end mb-3 g-3">
+                <div class="col-lg-8">
+                    <h2 class="section-title fw-bold mb-1">旅遊地區</h2>
+                    <div class="text-muted">依地區瀏覽，每個目的地皆附推薦旅遊方式。</div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="small text-muted">提示：點擊卡片可查看詳細內容。</div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills mb-3" id="regionTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-asia" type="button" role="tab">
+                        亞洲
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-europe" type="button" role="tab">
+                        歐洲
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-america" type="button" role="tab">
+                        美洲
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Asia -->
+                <div class="tab-pane fade show active" id="tab-asia" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1600&q=80"
+                                     alt="日本">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">日本</h5>
+                                    <p class="text-muted mb-3">櫻花季、美食之旅、交通便利城市。</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge rounded-pill text-bg-light border">自由行</span>
+                                        <span class="badge rounded-pill text-bg-light border">親子</span>
+                                        <span class="badge rounded-pill text-bg-light border">購物</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="日本旅遊"
+                                            data-desc="建議行程：東京＋京都，季節主題（櫻花、楓葉）與近郊一日遊。"
+                                            data-price="行程 $18,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="images/image5.jpg"
+                                     alt="韓國">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">韓國</h5>
+                                    <p class="text-muted mb-3">咖啡廳巡禮、K-pop 氛圍、城市與自然結合。</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge rounded-pill text-bg-light border">短天數</span>
+                                        <span class="badge rounded-pill text-bg-light border">美食</span>
+                                        <span class="badge rounded-pill text-bg-light border">情侶</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="韓國旅遊"
+                                            data-desc="建議行程：首爾＋釜山，保養品購物路線、咖啡地圖與 eSIM 加購。"
+                                            data-price="行程 $12,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=80" alt="泰國">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">泰國</h5>
+                                    <p class="text-muted mb-3">寺廟、海灘、夜市文化。</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge rounded-pill text-bg-light border">預算型</span>
+                                        <span class="badge rounded-pill text-bg-light border">海灘</span>
+                                        <span class="badge rounded-pill text-bg-light border">美食</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="泰國旅遊"
+                                            data-desc="建議行程：曼谷市區導覽＋海島行程。加購項目：水上市場、SPA、浮潛。"
+                                            data-price="行程 $9,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Europe -->
+                <div class="tab-pane fade" id="tab-europe" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80" alt="法國">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">法國</h5>
+                                    <p class="text-muted mb-3">巴黎藝術、葡萄酒產區、浪漫路線。</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="法國旅遊"
+                                            data-desc="建議行程：巴黎＋近郊一日遊、博物館通行證與塞納河遊船。"
+                                            data-price="行程 $45,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80" alt="瑞士">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">瑞士</h5>
+                                    <p class="text-muted mb-3">阿爾卑斯山、景觀列車、湖畔小鎮。</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="瑞士旅遊"
+                                            data-desc="建議行程：少女峰區域＋琉森，登山體驗與攝影路線。"
+                                            data-price="行程 $52,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=1600&q=80" alt="義大利">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">義大利</h5>
+                                    <p class="text-muted mb-3">歷史古蹟、義式冰淇淋、威尼斯運河。</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="義大利旅遊"
+                                            data-desc="建議行程：羅馬＋佛羅倫斯＋威尼斯，博物館預約與美食導覽。"
+                                            data-price="行程 $49,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- America -->
+                <div class="tab-pane fade" id="tab-america" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1600&q=80" alt="紐約">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">紐約</h5>
+                                    <p class="text-muted mb-3">城市通行證、博物館、天際線景觀。</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="紐約旅遊"
+                                            data-desc="建議天數：5–7 天，交通卡使用建議與百老匯加購選項。"
+                                            data-price="行程 $39,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=1600&q=80" alt="洛杉磯">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">洛杉磯</h5>
+                                    <p class="text-muted mb-3">好萊塢、海灘、主題樂園。</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="洛杉磯旅遊"
+                                            data-desc="建議行程：片場參觀＋海岸公路自駕＋主題樂園。"
+                                            data-price="行程 $36,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-soft h-100">
+                                <img class="card-img-top" style="height:180px; object-fit:cover;"
+                                     src="https://images.unsplash.com/photo-1519183071298-a2962eadeba4?auto=format&fit=crop&w=1600&q=80" alt="加拿大">
+                                <div class="card-body">
+                                    <h5 class="fw-bold">加拿大洛磯山脈</h5>
+                                    <p class="text-muted mb-3">湖泊美景、健行步道、國家公園。</p>
+                                </div>
+                                <div class="card-footer bg-white border-0 pt-0">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                            data-title="加拿大洛磯山脈旅遊"
+                                            data-desc="建議行程：班夫＋傑士伯，最佳季節與入門健行路線。"
+                                            data-price="行程 $58,900 起">
+                                        查看詳情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Themes + Accordion -->
+    <section id="themes" class="py-5 bg-white border-top border-bottom">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h2 class="section-title fw-bold mb-2">旅遊主題</h2>
+                    <p class="text-muted mb-4">選擇一個主題，我們將為你推薦合適的行程路線。本區使用 Accordion 元件。</p>
+
+                    <div class="accordion" id="themeAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
+                                    <i class="bi bi-camera me-2"></i> 攝影景點
+                                </button>
+                            </h2>
+                            <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#themeAccordion">
+                                <div class="accordion-body text-muted">
+                                    黃金時刻拍攝點、隱藏巷弄與風景交通路線，適合內容創作者與攝影愛好者。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">
+                                    <i class="bi bi-egg-fried me-2"></i> 美食與夜市
+                                </button>
+                            </h2>
+                            <div id="c2" class="accordion-collapse collapse" data-bs-parent="#themeAccordion">
+                                <div class="accordion-body text-muted">
+                                    街頭美食地圖、餐廳訂位與必吃清單，兼顧預算與舒適度。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">
+                                    <i class="bi bi-heart me-2"></i> 情侶度假
+                                </button>
+                            </h2>
+                            <div id="c3" class="accordion-collapse collapse" data-bs-parent="#themeAccordion">
+                                <div class="accordion-body text-muted">
+                                    浪漫住宿、SPA 加購行程，以及節奏輕鬆、保留自由時間的安排。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4">
+                                    <i class="bi bi-brightness-high me-2"></i> 親子友善
+                                </button>
+                            </h2>
+                            <div id="c4" class="accordion-collapse collapse" data-bs-parent="#themeAccordion">
+                                <div class="accordion-body text-muted">
+                                    親子友善飯店、縮短移動時間、主題樂園與完善的休息安排。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter + form -->
+                <div class="col-lg-6">
+                    <div class="p-4 p-lg-5 bg-light rounded-4 shadow-soft">
+                        <h3 class="fw-bold mb-2">每週優惠通知</h3>
+                        <p class="text-muted mb-4">訂閱即可收到限時優惠與季節性旅遊方案。</p>
+
+                        <form id="newsletterForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">姓名</label>
+                                <input type="text" class="form-control" id="name" required />
+                                <div class="invalid-feedback">請輸入您的姓名。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">電子郵件</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" required />
+                                    <div class="invalid-feedback">請輸入有效的電子郵件。</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">旅遊偏好</label>
+                                <select class="form-select" id="pref" required>
+                                    <option value="" selected disabled>請選擇</option>
+                                    <option>團體旅遊</option>
+                                    <option>自由行</option>
+                                    <option>票券／周遊券</option>
+                                </select>
+                                <div class="invalid-feedback">請選擇一個旅遊偏好。</div>
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg" type="submit">
+                                    訂閱 <i class="bi bi-bell"></i>
+                                </button>
+                            </div>
+
+                            <p class="small text-muted mt-3 mb-0">
+                                訂閱即表示同意接收推廣電子郵件，您可隨時取消訂閱。
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- FAQ -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-5">
+                    <h2 class="fw-bold mb-2">常見問題</h2>
+                    <p class="text-muted">
+                        關於訂購與付款的常見問題。（同樣使用 Bootstrap Accordion 元件）
+                    </p>
+
+                    <div class="alert alert-primary d-flex align-items-start gap-2" role="alert">
+                        <i class="bi bi-info-circle fs-5"></i>
+                        <div>
+                            <div class="fw-semibold">需要協助嗎？</div>
+                            <div class="small">點擊「取得報價」即可快速傳送詢問表單。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="accordion shadow-soft bg-white rounded-4" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    我要如何訂購行程？
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    使用「快速訂購」搜尋行程，接著透過彈出視窗填寫需求。在實際系統中會進入結帳流程。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    行程可以客製化嗎？
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    可以，點擊「取得報價」並提供目的地、日期與人數即可。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    支援哪些付款方式？
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    信用卡／銀行轉帳／分期付款（示範文字，可依課程需求調整）。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                                    價格是最終價格嗎？
+                                </button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    價格會依季節與名額有所調整，本示範網站僅顯示介面練習用價格。
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="fw-bold fs-5 mb-2">
+                        <i class="bi bi-globe-asia-australia text-primary"></i> VoyagoTravel
+                    </div>
+                    <p class="text-white-50 mb-3">
+                        本網站為 Bootstrap 課堂作業示範用旅遊網站，可依需求自行更換品牌與內容。
+                    </p>
+                    <div class="d-flex gap-3 fs-5">
+                        <a class="text-white" href="#"><i class="bi bi-facebook"></i></a>
+                        <a class="text-white" href="#"><i class="bi bi-instagram"></i></a>
+                        <a class="text-white" href="#"><i class="bi bi-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <div class="fw-semibold mb-2">探索</div>
+                    <div class="d-flex flex-column gap-1">
+                        <a class="footer-link" href="#deals">熱門行程</a>
+                        <a class="footer-link" href="#destinations">旅遊地區</a>
+                        <a class="footer-link" href="#themes">主題旅遊</a>
+                        <a class="footer-link" href="#faq">常見問題</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <div class="fw-semibold mb-2">客服支援</div>
+                    <div class="d-flex flex-column gap-1">
+                        <a class="footer-link" href="#" data-bs-toggle="modal" data-bs-target="#quoteModal">聯絡我們</a>
+                        <a class="footer-link" href="#">退費政策</a>
+                        <a class="footer-link" href="#">使用條款</a>
+                        <a class="footer-link" href="#">隱私權政策</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="fw-semibold mb-2">辦公室</div>
+                    <div class="text-white-50 small">
+                        <div><i class="bi bi-geo-alt"></i> 台灣・台北</div>
+                        <div><i class="bi bi-telephone"></i> 02-1234-5678</div>
+                        <div><i class="bi bi-envelope"></i> service@voyago.example</div>
+                    </div>
+
+                    <hr class="border-secondary my-3">
+
+                    <button class="btn btn-outline-light w-100" id="backToTopBtn">
+                        <i class="bi bi-arrow-up"></i> 回到頂部
+                    </button>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="d-flex flex-wrap justify-content-between gap-2 small text-white-50">
+                <div>© <span id="year"></span> VoyagoTravel（示範）</div>
+                <div>使用 Bootstrap 5 製作</div>
+            </div>
+        </div>
+    </footer>
+    <!-- Detail Modal -->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="detailTitle">行程詳細內容</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted" id="detailDesc"></p>
+                    <div class="p-3 rounded-3 bg-light border">
+                        <div class="small text-muted">價格</div>
+                        <div class="h4 fw-bold mb-0" id="detailPrice"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                        申請訂購
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">取得客製化報價</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="quoteForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">姓名</label>
+                                <input class="form-control" required />
+                                <div class="invalid-feedback">請輸入您的姓名。</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">電子郵件</label>
+                                <input type="email" class="form-control" required />
+                                <div class="invalid-feedback">請輸入有效的電子郵件。</div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">目的地</label>
+                                <input class="form-control" placeholder="例如：日本" required />
+                                <div class="invalid-feedback">請填寫目的地。</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">出發日期</label>
+                                <input type="date" class="form-control" required />
+                                <div class="invalid-feedback">請選擇日期。</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">旅客人數</label>
+                                <input type="number" min="1" value="2" class="form-control" required />
+                                <div class="invalid-feedback">請輸入旅客人數。</div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">備註</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="預算、飯店偏好、必去景點等..."></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agree" required>
+                                    <label class="form-check-label" for="agree">
+                                        我同意使用條款與隱私權政策（示範）。
+                                    </label>
+                                    <div class="invalid-feedback">送出前請先同意。</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                取消
+                            </button>
+                            <button class="btn btn-primary" type="submit">
+                                送出 <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">會員登入（示範）</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning small mb-3">
+                        此為介面示範，未包含實際登入驗證功能。
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">電子郵件</label>
+                        <input type="email" class="form-control" placeholder="you@example.com" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">密碼</label>
+                        <input type="password" class="form-control" placeholder="••••••••" />
+                    </div>
+                    <button class="btn btn-primary w-100" data-bs-dismiss="modal">
+                        登入
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-check-circle text-success me-2"></i>
+                <strong class="me-auto">VoyagoTravel</strong>
+                <small class="text-muted">剛剛</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastMsg">完成！</div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+  // --- Utilities ---
+  const toastEl = document.getElementById('liveToast');
+  const toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+  const toastMsg = document.getElementById('toastMsg');
+
+  function showToast(message){
+    toastMsg.textContent = message;
+    toast.show();
+  }
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Back to top
+  document.getElementById('backToTopBtn').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Search button (demo)
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    const type = document.getElementById('tripType').value;
+    const dest = document.getElementById('destination').value.trim() || '你的目的地';
+    const month = document.getElementById('departMonth').value || '未來的月份';
+    showToast(`正在搜尋 ${month} 前往 ${dest} 的 ${type} 行程…（示範）`);
+  });
+
+  // Modal: fill details from button dataset
+  const detailModal = document.getElementById('detailModal');
+  detailModal.addEventListener('show.bs.modal', event => {
+    const btn = event.relatedTarget;
+    const title = btn.getAttribute('data-title') || '行程詳細內容';
+    const desc  = btn.getAttribute('data-desc') || '';
+    const price = btn.getAttribute('data-price') || '';
+    document.getElementById('detailTitle').textContent = title;
+    document.getElementById('detailDesc').textContent = desc;
+    document.getElementById('detailPrice').textContent = price;
+  });
+
+  // Bootstrap form validation
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          event.preventDefault();
+          showToast('表單送出成功！（示範）');
+          const parentModal = form.closest('.modal');
+          if (parentModal) bootstrap.Modal.getInstance(parentModal)?.hide();
+          form.reset();
+          form.classList.remove('was-validated'); // reset validation UI
+          return;
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+    </script>
+
+</body>
+</html>
